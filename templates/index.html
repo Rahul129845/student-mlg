@@ -1,0 +1,177 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Student Placement Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Placement Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="IQ">IQ:</label>
+            <input type="number" name="IQ" required>
+            
+            <label for="CGPA">CGPA:</label>
+            <input type="number" step="0.01" name="CGPA" required>
+            
+            <label for="10th_Marks">10th Marks:</label>
+            <input type="number" name="10th_Marks" required>
+            
+            <label for="12th_Marks">12th Marks:</label>
+            <input type="number" name="12th_Marks" required>
+            
+            <label for="Communication_Skills">Communication Skills:</label>
+            <input type="number" step="0.01" name="Communication_Skills" required>
+            
+            <input type="submit" value="Predict">
+        </form>
+         {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %} -->
+    <!-- </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Model Prediction with Input</h2>
+        <!-- Input Form -->
+        <form id="modelForm" method="post">
+            <label for="Gender">Gender:</label>
+            <select name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" required>
+            
+            <label for="Academic Pressure">Academic Pressure:</label>
+            <input type="number" name="Academic Pressure" required>
+            
+            <label for="Study Satisfaction">Study Satisfaction:</label>
+            <input type="number" name="Study Satisfaction" required>
+            
+            <label for="Sleep Duration">Sleep Duration:</label>
+            <select name="Sleep Duration" required>
+                <option value="5-6 hours">5-6 hours</option>
+                <option value="Less than 5 hours">Less than 5 hours</option>
+                <option value="7-8 hours">7-8 hours</option>
+            </select>
+            
+            <label for="Dietary Habits">Dietary Habits:</label>
+            <select name="Dietary Habits" required>
+                <option value="Healthy">Healthy</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Unhealthy">Unhealthy</option>
+            </select>
+            
+            <label for="Have you ever had suicidal thoughts?">Have you ever had suicidal thoughts?</label>
+            <select name="Have you ever had suicidal thoughts?" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="Financial Stress">Financial Stress:</label>
+            <input type="number" name="Financial Stress" required>
+            
+            <label for="Family History of Mental Illness">Family History of Mental Illness:</label>
+            <select name="Family History of Mental Illness" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Prediction Buttons -->
+            <h3>Select a Model for Prediction</h3>
+            
+            <button type="submit" formaction="/predict_logistic">Logistic Regression</button>
+            <button type="submit" formaction="/predict_decision_tree">Decision Tree</button>
+            <button type="submit" formaction="/predict_random_forest">Random Forest</button>
+            <button type="submit" formaction="/predict_gradient_boosting">Gradient Boosting</button>
+            <button type="submit" formaction="/predict_adaboost">AdaBoost</button>
+            <button type="submit" formaction="/predict_svc">Support Vector Machine (SVC)</button>
+            <button type="submit" formaction="/predict_ensemble">Ensemble Prediction</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
